@@ -4,7 +4,7 @@ import ctypes
 import time
 
 if sys.platform.startswith('win32'):
-    libEDK = cdll.LoadLibrary("edk.dll")
+    libEDK = ctypes.cdll.LoadLibrary("edk.dll")
 elif sys.platform.startswith('linux'):
     srcDir = os.getcwd()
     libPath = srcDir + "/libedk.so.1.0.0"
