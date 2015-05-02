@@ -1,5 +1,7 @@
 # joycast
-Capturing the best moments in your life via EEG
+Capture and broadcast the best moments in your life<sup>*</sup>.
+
+<sup>* best being defined as an Emotiv EPOC EEG headset saying that you smiled.</sup>
 
 Getting started
 ---------------
