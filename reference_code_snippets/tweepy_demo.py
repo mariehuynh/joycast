@@ -22,4 +22,4 @@ for tweet in public_tweets:
     print tweet.text
 
 #api.update_status(status='Sometimes I pretend to be a bear.')
-#api.update_with_media('kepta-eriena.jpg', status='Yum!')
+#api.update_with_media('kepta-eriena.jpg', status='Yum! #MakesMeHappy #joycast')
