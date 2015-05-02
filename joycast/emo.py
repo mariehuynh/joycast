@@ -123,6 +123,14 @@ ES_CognitivGetCurrentActionPower = libEDK.ES_CognitivGetCurrentActionPower
 ES_CognitivGetCurrentActionPower.restype = ctypes.c_float
 ES_CognitivGetCurrentActionPower.argtypes = [ctypes.c_void_p]
 
+EE_SaveUserProfile = libEDK.EE_SaveUserProfile
+EE_SaveUserProfile.restype = ctypes.c_int
+EE_SaveUserProfile.argtypes = (ctypes.c_uint, ctypes.c_char_p)
+
+EE_LoadUserProfile = libEDK.EE_LoadUserProfile
+EE_LoadUserProfile.restype = ctypes.c_int
+EE_LoadUserProfile.argtypes = (ctypes.c_uint, ctypes.c_char_p)
+
 EE_EmoStateUpdated = 64  # libEDK.EE_Event_enum.EE_EmoStateUpdated
 EDK_OK = 0
 
