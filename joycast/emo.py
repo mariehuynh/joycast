@@ -1,7 +1,13 @@
+"""
+The amount of global state here is disgusting, but hey, it's a hackathon.
+"""
+
 import sys
 import os
 import ctypes
 import time
+
+from os.path import abspath
 
 if sys.platform.startswith('win32'):
     libEDK = ctypes.cdll.LoadLibrary("edk.dll")
@@ -143,30 +149,35 @@ EXP_SMIRK_RIGHT = 0x0800  # smirk right
 EXP_LAUGH = 0x0200        # laugh
 
 
-def getNextSmile(connectOption):
+def getNextSmile(connectionType, profileFile=None):
     """
     You can get a convenient stream of smile values with this
     generator.
 
-    connectOption:
+    connectionType:
         1 - connect to headset
         2 - connect to EmoComposer
 
     Ex:
 
-    >>> connectOption = int(raw_input())
-    >>> for smile in getNextSmile(connectOption):
+    >>> connectionType = int(raw_input())
+    >>> for smile in getNextSmile(connectionType):
             print(smile)
     """
-    if connectOption == 1:
+    if connectionType == 1:
         if EE_EngineConnect("Emotiv Systems-5") != 0:
             raise ValueError("Emotiv Engine start up failed")
-    elif connectOption == 2:
+    elif connectionType == 2:
         composerPort = ctypes.c_uint(1726)
         if EE_EngineRemoteConnect("127.0.0.1", composerPort) != 0:
             raise ValueError("cannot connect to EmoComposer")
     else:
         raise ValueError("option must be 1 (headset) or 2 (EmoComposer)")
+
+    if profileFile is not None:
+        status = EE_LoadUserProfile(ctypes.c_uint(0), abspath(profileFile))
+        if status != EDK_OK:
+            raise IOError("could not load user profile: path {0:s}, status {1:d}".format(abspath(profileFile), status))
 
     userID = ctypes.c_uint(9999)
     eEvent = EE_EmoEngineEventCreate()
