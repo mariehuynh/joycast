@@ -1,6 +1,6 @@
 from sys import argv
 
-HISTORY_LEN = 20
+HISTORY_LEN = 5
 class HappinessFilter(object):
     def __init__(self):
         self.history = [0] * HISTORY_LEN
