@@ -2,12 +2,23 @@
 
 
 
-We want to capture all the best moments in our lives, the things that make us happy and smile.  But some of the best are so fleeting that by the time you pull your phone out, it's gone.  The moment has passed or that cute fluffy thing hopped away.  Fussing with a camera can also get in the way of properly enjoying an event.  It's why you hire a wedding photographer to take care of that for you... but you can't have that at all times.
+We want to capture all the best moments in our lives, the things that make us happy and smile.  But some of the best are so fleeting that by the time you pull your phone out, it's gone.  The moment has passed or that cute fluffy thing hopped away.  Fussing with a camera can also get in the way of properly enjoying a moment.  It's why you hire a wedding photographer to take care of that for you... but you can't have that at all times.
 
 This is where automation comes in.  With the help of the Emotiv headset, we can know when you're having a good experience and automatically capture a photo without needing human intervention and thus delay.  
 
-We built a system that takes those signals, filters, and processes them based on our metrics to create a happiness index.  When happiness rises above the threshhold, the camera snaps a photo, which (for this demo) is uploaded to Twitter.  This system is efficient enough that time from smile to Twitter is about two seconds, give or take your network.
+Metrics:
+So what is happiness?  We're not philosophers, we're engineers, so we built a system that takes those signals, filters, and processes them based on our metrics to create a happiness index.  When the happiness index rises above the threshhold, the camera snaps a photo, which (for this demo) is uploaded to Twitter.  Bouncing is a common problem when dealing with real world triggers so we put in a delay and rearming threshhold.  This system is efficient enough that time from smile to Twitter is about two seconds, give or take your network.
 
+Design considerations:
+
+Let's talk about privacy for a moment.  Of course you don't always want everything in your life automatically posted publicly and shared with the world, so when not in demo mode, we've included a nonposting setting.
+
+
+Getting a good, clear photo can be difficult, especially when laughing, so we went with a chest mount instead of head.  This way, it won't interfere with the headset and the greater stability on the torso means you can have a slower shutter speed and better performance in low lighting conditions.  Have a special date in a dimly lit restaurant?  We've got you covered there too.
+
+
+Future work/Improvements:
+We have this proof of concept working on both Windows and Mac, and the next step is mobile.  Phones have 
 
 Challenges/ Design considerations
   * jerky cams - body mount instead of head
@@ -16,7 +27,7 @@ Challenges/ Design considerations
       * so you can have a slower shutter speed and improve performance in low lighting conditions
       * still pointed at the subject
       * doesn't interfere with the headset
-  headset usage
+  *headset usage
     signals
 
   * configured for min latency for demo purposes
@@ -42,6 +53,10 @@ Improvements
   since that will offer all the features we want for mobile devices like bluetooth
   as well as saline-free connections so it's wearable on the gopro
 
+Dev process and tools that made our lives easier
+ * git
+ * tweepy
+ * CommandCam (for Windows) and imagesnap (for Mac)
 
 
 
