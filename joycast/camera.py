@@ -10,13 +10,15 @@ def takeSnapshot(rotate180=False):
     if platform.startswith('win32'):
         check_call(["CommandCam"])
         imagePath = "image.bmp"
+        convertedImagePath = "image.jpg"
     elif platform.startswith('darwin'):
         check_call(["imagesnap"])
         imagePath = "snapshot.jpg"
+        convertedImagePath = imagePath
     else:
         raise NotImplementedError("don't know how to take pictures on your OS")
 
     if rotate180:
-        check_call(["convert", imagePath, "-rotate", "180", imagePath])
+        check_call(["convert", imagePath, "-rotate", "180", convertedImagePath])
 
-    return imagePath
+    return convertedImagePath
