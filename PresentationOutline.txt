@@ -1,0 +1,42 @@
+3 minutes
+
+Idea for the next project: 
+
+We wanted to capture all the best moments in your life, the things that make you happy, smile and grin.  Some of the best are so fleeting that even if you wanted to capture it, by the time you pull your phone out, it's gone.  The moment has passed or that cute fluffy thing hopped away.  
+
+
+a product that automatically takes photos of everything that makes you smile. 
+
+Fishing your phone out of your pocket and taking a photo takes too long sometimes and the moment has passed. Or it might ruin the moment. Have you ever said "Hey, look!" but by the time they look, the fluffy bunny/yeti/whatever awesome thing is gone?
+
+
+We aim to fix that. EEG headsets can track facial expressions like smiles. Just hook that up to a camera. 
+
+Challenges/ Design considerations
+  * jerky cams - body mount instead of head
+    * Getting a good, clear photo is difficult, especially when laughing 
+    * body mounted offers greater stability, 
+      * so you can have a slower shutter speed and improve performance in low lighting conditions
+      * still pointed at the subject
+      * doesn't interfere with the headset
+  headset usage
+    signals
+
+  * configured for min latency for demo purposes
+  * privacy concerns
+    * option for saving or upload to private folder for review and custom captions
+      * tweets can't be edited
+
+  why not just a gopro?
+    * too much data
+
+Improvements
+  * containment in a phone app - no extra hardware needed
+    * can be kept in a shirt pocket
+  * gopro integration
+  * emotion-based hashtags
+  * privacy concerns
+    * option for saving or upload to private folder for review
+  * build an aggregator site for a community of likeminded people
+    * because Twitter search has delays and angry people 
+    * instagram or snapchat
