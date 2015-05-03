@@ -148,10 +148,13 @@ EXP_SMIRK_LEFT = 0x0400   # smirk left
 EXP_SMIRK_RIGHT = 0x0800  # smirk right
 EXP_LAUGH = 0x0200        # laugh
 
-
-def getNextSmile(connectionType, profileFile=None):
+happinessFactor = {EXP_LAUGH: 1.0,
+                   EXP_SMILE: 0.9,
+                   EXP_SMIRK_LEFT: 0.5,
+                   EXP_SMIRK_RIGHT: 0.5}
+def getNextHappiness(connectionType, profileFile=None):
     """
-    You can get a convenient stream of smile values with this
+    You can get a convenient stream of happiness values with this
     generator.
 
     connectionType:
@@ -191,11 +194,10 @@ def getNextSmile(connectionType, profileFile=None):
                 EE_EmoEngineEventGetUserId(eEvent, ctypes.pointer(userID))
                 if eventType == EE_EmoStateUpdated:
                     EE_EmoEngineEventGetEmoState(eEvent, eState)
-                    if ES_ExpressivGetLowerFaceAction(eState) == EXP_SMILE:
-                        smile = ES_ExpressivGetLowerFaceActionPower(eState)
-                    else:
-                        smile = 0
-                    yield smile
+                    lfAction = ES_ExpressivGetLowerFaceAction(eState)
+                    lfPower = ES_ExpressivGetLowerFaceActionPower(eState)
+                    happiness = lfPower * happinessFactor.get(lfAction, 0)
+                    yield happiness
             elif state != 0x0600:
                 raise IOError("internal error in Emotiv Engine")
     except:
