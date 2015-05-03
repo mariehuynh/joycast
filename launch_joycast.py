@@ -22,7 +22,7 @@ def parse_args():
 args = parse_args()
 
 for smileScore in getNextHappiness(args.connectionType,
-                               profileFile=args.profile_file):
+                                   profileFile=args.profile_file):
     print("smileScore = {0:f}".format(smileScore))
     if smileScore > 0.5:  # FIXME: insert real classifier here
         imagePath = takeSnapshot(rotate180=True)
