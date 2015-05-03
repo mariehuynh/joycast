@@ -197,7 +197,7 @@ def getNextHappiness(connectionType, profileFile=None):
                 raise IOError("could not load user profile: path {0:s}, status {1:d}".format(abspath(profileFile), state))
 
         while 1:
-            time.sleep(0.1)
+            time.sleep(0.05)
             state = EE_EngineGetNextEvent(eEvent)
             if state == EDK_OK:
                 eventType = EE_EmoEngineEventGetType(eEvent)
@@ -210,8 +210,8 @@ def getNextHappiness(connectionType, profileFile=None):
                     yield happiness
             elif state != 0x0600:
                 raise IOError("internal error in Emotiv Engine")
-    except:
+    finally:
+        print("Shutting down cleanly...")
         EE_EngineDisconnect()
         EE_EmoStateFree(eState)
         EE_EmoEngineEventFree(eEvent)
-        raise
