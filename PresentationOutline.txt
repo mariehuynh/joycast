@@ -1,16 +1,13 @@
 3 minutes
 
-Idea for the next project: 
-
-We wanted to capture all the best moments in your life, the things that make you happy, smile and grin.  Some of the best are so fleeting that even if you wanted to capture it, by the time you pull your phone out, it's gone.  The moment has passed or that cute fluffy thing hopped away.  
 
 
-a product that automatically takes photos of everything that makes you smile. 
+We want to capture all the best moments in our lives, the things that make us happy and smile.  But some of the best are so fleeting that by the time you pull your phone out, it's gone.  The moment has passed or that cute fluffy thing hopped away.  Fussing with a camera can also get in the way of properly enjoying an event.  It's why you hire a wedding photographer to take care of that for you... but you can't have that at all times.
 
-Fishing your phone out of your pocket and taking a photo takes too long sometimes and the moment has passed. Or it might ruin the moment. Have you ever said "Hey, look!" but by the time they look, the fluffy bunny/yeti/whatever awesome thing is gone?
+This is where automation comes in.  With the help of the Emotiv headset, we can know when you're having a good experience and automatically capture a photo without needing human intervention and thus delay.  
 
+We built a system that takes those signals, filters, and processes them based on our metrics to create a happiness index.  When happiness rises above the threshhold, the camera snaps a photo, which (for this demo) is uploaded to Twitter.  This system is efficient enough that time from smile to Twitter is about two seconds, give or take your network.
 
-We aim to fix that. EEG headsets can track facial expressions like smiles. Just hook that up to a camera. 
 
 Challenges/ Design considerations
   * jerky cams - body mount instead of head
@@ -31,7 +28,7 @@ Challenges/ Design considerations
     * too much data
 
 Improvements
-  * containment in a phone app - no extra hardware needed
+  * containment in a phone app - no extra hardware needed 
     * can be kept in a shirt pocket
   * gopro integration
   * emotion-based hashtags
@@ -40,3 +37,21 @@ Improvements
   * build an aggregator site for a community of likeminded people
     * because Twitter search has delays and angry people 
     * instagram or snapchat
+
+  * We're also looking forward to the release of the Insight, 
+  since that will offer all the features we want for mobile devices like bluetooth
+  as well as saline-free connections so it's wearable on the gopro
+
+
+
+
+
+
+
+a product that automatically takes photos of everything that makes you smile. 
+
+Fishing your phone out of your pocket and taking a photo takes too long sometimes and the moment has passed. Or it might ruin the moment. Have you ever said "Hey, look!" but by the time they look, the fluffy bunny/yeti/whatever awesome thing is gone?
+
+
+We aim to fix that. EEG headsets can track facial expressions like smiles. Just hook that up to a camera. 
+  They say "The best camera is the one that's with you", and that's 
