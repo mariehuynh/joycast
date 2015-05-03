@@ -48,6 +48,7 @@ state = "armed"
 for smileScore in getNextHappiness(args.connectionType,
                                    profileFile=args.profile_file):
     filteredHappiness = happinessFilter.update(smileScore)
+    print(filteredHappiness)
     if state == "armed":
         if filteredHappiness > args.trigger_threshold:
             print("trigger!")

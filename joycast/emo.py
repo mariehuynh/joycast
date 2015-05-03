@@ -137,6 +137,7 @@ EE_LoadUserProfile = libEDK.EE_LoadUserProfile
 EE_LoadUserProfile.restype = ctypes.c_int
 EE_LoadUserProfile.argtypes = (ctypes.c_uint, ctypes.c_char_p)
 
+EE_UserAdded = 16
 EE_EmoStateUpdated = 64  # libEDK.EE_Event_enum.EE_EmoStateUpdated
 EDK_OK = 0
 
@@ -177,17 +178,26 @@ def getNextHappiness(connectionType, profileFile=None):
     else:
         raise ValueError("option must be 1 (headset) or 2 (EmoComposer)")
 
-    if profileFile is not None:
-        status = EE_LoadUserProfile(ctypes.c_uint(0), abspath(profileFile))
-        if status != EDK_OK:
-            raise IOError("could not load user profile: path {0:s}, status {1:d}".format(abspath(profileFile), status))
-
-    userID = ctypes.c_uint(9999)
-    eEvent = EE_EmoEngineEventCreate()
-    eState = EE_EmoStateCreate()
     try:
-        while 1:
+        userID = ctypes.c_uint(9999)
+        eEvent = EE_EmoEngineEventCreate()
+        eState = EE_EmoStateCreate()
+
+        if profileFile is not None:
             time.sleep(0.1)
+            state = EE_EngineGetNextEvent(eEvent)
+            if state == EDK_OK:
+                eventType = EE_EmoEngineEventGetType(eEvent)
+                if eventType == EE_UserAdded:
+                    EE_EmoEngineEventGetUserId(eEvent, ctypes.pointer(userID))
+                    status = EE_LoadUserProfile(userID, abspath(profileFile))
+                    if status != EDK_OK:
+                        raise IOError("could not load user profile: path {0:s}, status {1:d}".format(abspath(profileFile), status))
+            else:
+                raise IOError("could not load user profile: path {0:s}, status {1:d}".format(abspath(profileFile), state))
+
+        while 1:
+            time.sleep(0.05)
             state = EE_EngineGetNextEvent(eEvent)
             if state == EDK_OK:
                 eventType = EE_EmoEngineEventGetType(eEvent)
@@ -200,8 +210,8 @@ def getNextHappiness(connectionType, profileFile=None):
                     yield happiness
             elif state != 0x0600:
                 raise IOError("internal error in Emotiv Engine")
-    except:
+    finally:
+        print("Shutting down cleanly...")
         EE_EngineDisconnect()
         EE_EmoStateFree(eState)
         EE_EmoEngineEventFree(eEvent)
-        raise

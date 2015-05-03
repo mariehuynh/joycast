@@ -17,4 +17,4 @@ api = tweepy.API(auth)
 
 
 def uploadPhoto(imagePath):
-    api.update_with_media(imagePath, status="#MakesMeHappy #joycast")
+    api.update_with_media(imagePath, status="#TakenWithASmile #joycast")
