@@ -2,18 +2,44 @@
 
 
 
-We want to capture all the best moments in our lives, the things that make us happy and smile.  But some of the best are so fleeting that by the time you pull your phone out, it's gone.  The moment has passed or that cute fluffy thing hopped away.  Fussing with a camera can also get in the way of properly enjoying a moment.  It's why you hire a wedding photographer to take care of that for you... but you can't have that at all times.
+We want to capture all the best moments in our lives, the things that make us happy and smile.  But some of the best are so fleeting that by the time you pull your phone out, it's gone. 
 
-This is where automation comes in.  With the help of the Emotiv headset, we can know when you're having a good experience and automatically capture a photo without needing human intervention and thus delay.  
+Fussing with a camera can also get in the way of properly enjoying a moment.  It's why you hire a wedding photographer to take care of that for you... but you can't have that all the time.
+
+This is where intelligent automation comes in.  With the help of the Emotiv headset, we can know when you're having a good experience and automatically capture a photo. 
+
+
+
+
 
 Metrics: 30
-So what is happiness?  We're not philosophers, we're engineers, so we built a system that takes those signals, filters, and processes them based on our metrics to create a happiness index.  When the happiness index rises above the threshhold, the camera snaps a photo, which (for this demo) is uploaded to Twitter.  Bouncing is a common problem when dealing with real world triggers so we put in a delay and rearming threshhold.  This system is efficient enough that time from smile to Twitter is about two seconds, give or take your network.
+So what is happiness?  We're not philosophers, we're engineers, so we built a system that takes those signals, filters, and processes them based on our metrics to create a happiness index.  
+
+
+When the happiness index rises above the threshhold, the camera snaps a photo, which (for this demo) is uploaded to Twitter.  Bouncing is a common problem when dealing with real world triggers so we put in a delay and rearming threshhold.  
+
+
+
+
+
 
 Design considerations: 35+
 
-Let's talk about privacy for a moment.  Of course you don't want everything in your life automatically posted and shared with the world, so we've included a nonposting setting for more personal moments or offline use.  This delay means you can also add your own tags and captions before posting.
+Let's talk about privacy for a moment.  Of course you don't want everything in your life automatically posted and shared with the world, so we've included a nonposting setting for more personal moments or offline use.  This delay means you can also add your own tags and captions before posting from your approval queue.
+
+
+
+
+
+
 
 Getting a good, clear photo can be difficult, especially when laughing, so we went with a chest mount instead of head.  This way, it won't interfere with the headset and the greater stability on the torso means you can have a slower shutter speed and better performance in low lighting conditions.  Have a special date in a dimly lit restaurant?  We've got you covered there too.
+
+
+
+
+
+
 
 
 Future work/Improvements:
@@ -26,6 +52,7 @@ We can also build a community website that likeminded people can opt into for sh
 We're also looking forward to the release of the Insight, which can be worn for much longer without maintenance, allowing our software to work without intruding into your consciousness.  Set and forget.
 
 We didn't use a gopro but can integrate that for short videos.  Continuous feeds have their place but we're focusing on the best moments.
+We're also looking forward to the release of the Insight, which can be worn for much longer without maintenance, allowing our software to work without intruding into your consciousness.
 
 
   since that will offer all the features we want for mobile devices like bluetooth
