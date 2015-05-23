@@ -5,6 +5,8 @@ Capture and broadcast the best moments in your life<sup>*</sup>.
 
 Mechanically, JoyCast is a Python script that monitors the lower jaw action and power output by the Emotiv Engine. When our classifier decides that you're over a happiness threshold, it takes a snapshot from your webcam and uploads it to Twitter.
 
+For more information, see [Marie's post](http://www.mariehuynh.com/joycast-intelligent-automation-for-photos/).
+
 Getting started
 ---------------
 
